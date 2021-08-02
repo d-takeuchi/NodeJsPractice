@@ -1,0 +1,4 @@
+node_modules
+
+# Config Files
+/src/config/dev.js

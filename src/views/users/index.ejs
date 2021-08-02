@@ -1,0 +1,41 @@
+<header>
+  <h1>ユーザー一覧</h1>
+  <a href="/users/new">新規登録</a>
+</header>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% users.forEach(user => { %>
+      <tr>
+        <td>
+          <%= user.fullName %>
+        </td>
+        <td><%= user.email %></td>
+        <td>
+          <a href="<%= `/users/${user._id}/edit` %>">Edit</a>
+        </td>
+        <td>
+          <a 
+            href="<%= `users/${user._id}/delete?_method=DELETE` %>"
+            onclick="return confirm('本当にこのユーザーを削除しますか？')"
+          >
+            DELETE
+          </a>
+        </td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
+
+<style>
+  header{
+    display: flex;
+    justify-content: space-between;
+  }
+</style>
